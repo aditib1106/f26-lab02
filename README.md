@@ -20,6 +20,18 @@ mvn test
 and the property-based tests (`AvailabilityProperties`). A code-coverage report is written
 to `target/site/jacoco/index.html`.
 
+## Tools
+
+| Tool | Version | Role |
+| --- | --- | --- |
+| JDK (Temurin) | 21 (`maven.compiler.release` = 21; CI runs Temurin 21) | Language / runtime |
+| Apache Maven | 3.8+ | Build and test driver (`mvn test`) |
+| JUnit Jupiter | 5.10.2 | Example-based unit tests (`AvailabilityCalculatorTest`) |
+| jqwik | 1.8.4 | Property-based testing (`AvailabilityProperties`); random generation + shrinking |
+| Maven Surefire plugin | 3.2.5 | Runs `*Test` and `*Properties` classes during the `test` phase |
+| JaCoCo (`jacoco-maven-plugin`) | 0.8.12 | Line/branch code-coverage report at `target/site/jacoco/index.html` |
+| GitHub Actions | `.github/workflows/ci.yml` | CI: runs `mvn -B test` on every push and pull request |
+
 ## Continuous integration
 
 This repository has CI configured in `.github/workflows/ci.yml`. GitHub disables workflows on a
